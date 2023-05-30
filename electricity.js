@@ -3,7 +3,7 @@ var unitsAvailable = 0;
 var advance = 0
 var topUp = 0;
 var totalAmount = 0;
-var totalUnitsBou = 0;
+var totalUnitsBou = 0; 
     // do we want to go with this or array? 
     let appliances = {
         'Stove': 10, 
@@ -13,27 +13,27 @@ var totalUnitsBou = 0;
     };
 
     function topUpElectricity(amount) {
-        topUp = amount
-        if (topUp == 10){
-            unitsAvailable = unitsAvailable + 7
-            totalAmount = totalAmount + amount
+        topUp = amount 
+        if (topUp == 10){ //checks if toput is R10 then adds 7 units to units available, add total amount and total amount bought
+            unitsAvailable = unitsAvailable + 7       
+            totalAmount = totalAmount + parseInt(amount) // converts amount to int for calculation
             totalUnitsBou = totalUnitsBou + 7
         }
-        if (topUp == 20){
+        if (topUp == 20){  //checks if toput is R20 then adds 14 units to units available, add total amount and total amount bought
             unitsAvailable = unitsAvailable + 14
-            totalAmount = totalAmount + amount
+            totalAmount = totalAmount + parseInt(amount)
             totalUnitsBou = totalUnitsBou + 14
         }
-        if (topUp == 50){
+        if (topUp == 50){  //checks if toput is R50 then adds 21 units to units available, add total amount and total amount bought
             unitsAvailable = unitsAvailable + 35
-            totalAmount = totalAmount + amount
+            totalAmount = totalAmount + parseInt(amount)
             totalUnitsBou = totalUnitsBou + 35
         }
         
         if (topUp == 'advance'){
-            if (advance<1 ) {  
+            if (advance<1 ) {  //checks if toput is adance then adds 21 units to units available, add total amount and total amount bought
             unitsAvailable = unitsAvailable + 21
-            totalUnitsBou = totalUnitsBou + 21
+            totalUnitsBou = totalUnitsBou + 35
             advance++
             }
         }
@@ -58,7 +58,7 @@ var totalUnitsBou = 0;
     function useAppliance(appliance) {
     
      
-        if (appliance == 'Fridge') {
+        if (appliance == 'Fridge') {  // checks if appliance selected is fridge and there's enough units available to use it (deduct units)
             if (unitsAvailable >= 13) {
                 unitsAvailable = unitsAvailable - 13
                 return true
@@ -67,7 +67,7 @@ var totalUnitsBou = 0;
             }
             }
             
-        if (appliance == 'Kettle') {
+        if (appliance == 'Kettle') { // checks if appliance selected is kettle and there's enough units available to use it (deduct units)
             if(unitsAvailable >= 5){
                 unitsAvailable = unitsAvailable - appliances.Kettle
                 return true
@@ -76,14 +76,14 @@ var totalUnitsBou = 0;
             }
            
         }
-        if (appliance == 'TV') {
+        if (appliance == 'TV') { // checks if appliance selected is TV and there's enough units available to use it (deduct units)
             if (unitsAvailable >= 3) {
                 unitsAvailable = unitsAvailable - appliances.TV   
                 return true
             } else{ return false}
             
         }
-        if (appliance == 'stove') {
+        if (appliance == 'stove') { // checks if appliance selected is stove and there's enough units available to use it (deduct units)
             if(unitsAvailable >= 10){
                 unitsAvailable = unitsAvailable - appliances.Stove
                 return true
@@ -98,11 +98,11 @@ var totalUnitsBou = 0;
     
     function getUnitsAvailable() {
     
-         return unitsAvailable;
+         return unitsAvailable; // returns total units available after topup and deducting
     }
     
     function advanceTaken() {
-        if (advance == 1){
+        if (advance == 1){ // checks if advance has been taken the returns true and false if not
            
             return true
         }else{
@@ -111,7 +111,7 @@ var totalUnitsBou = 0;
     }
 
     function totalAmountSpent() {
-        return totalAmount
+        return totalAmount // returns total amount that was bought
     }
 
     function totalUnitsBought(){

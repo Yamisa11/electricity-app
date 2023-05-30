@@ -50,7 +50,9 @@ button {
 .hidden {
 	display: none;
 }
-
+.showing{
+	display: inline !important;
+}
 @media (min-width: 768px) {
 	.sections {
 		display: flex;
