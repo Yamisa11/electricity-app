@@ -90,7 +90,7 @@ describe("The buy electricity app", function () {
         assert.equal(21, electricity.getUnitsAvailable());
         assert.isTrue(electricity.advanceTaken());
 
-        // advanced ignored as you still owe R10
+        // // advanced ignored as you still owe R10
         electricity.topUpElectricity('advance');
         electricity.topUpElectricity(20);
         assert.isFalse(electricity.advanceTaken());
@@ -98,7 +98,7 @@ describe("The buy electricity app", function () {
 
         assert.isTrue(electricity.useAppliance('TV'));
 
-        // advanced is valid now
+        // // advanced is valid now
         electricity.topUpElectricity('advance');
 
         assert.equal(46, electricity.getUnitsAvailable());
